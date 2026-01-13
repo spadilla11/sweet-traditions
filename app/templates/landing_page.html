@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+<nav class="navbar-landing">
+    <ul>
+        <li style="font-weight: bold; font-size: 25px;">Sweet Traditions<img src="{% static 'images/bakery.png' %}" alt="Logo" style="width: 25px;"></li>
+        <li><a href="#our-story">Our Story</a></li>   
+        <li><a href="#services">Services</a></li>
+        <li><a href="{% url 'menu'%}">Menu</a></li>
+        <li><a href="#follow-us">Follow Us</a></li>
+        <li><a style="float: right;" href="{% url 'login' %}" class="login">Order Now</a></li>
+    </ul>
+</nav>
+
+<div>
+    <h1 style="margin-left: 15%;">Taste.Delivered.</h1>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="{% static 'images/landing_page_image.jpg' %}" alt="Landing Page Image" class="landing_page_image"/>
+        <p class="first-desc" style="text-align: center; font-size: larger;">Freshly prepared meals and pantry essentials crafted for workplaces, events, and 
+            community spaces—bringing restaurant-quality flavor straight to your door.</p>
+    </div>
+
+</div>
+
+<hr class="hr">
+
+<div id="our-story" class="our-story">
+    <p style="text-align: center; margin-left: 15%; margin-right: 15%;">Sweet Traditions was created from a passion for baking and a commitment to preserving the flavors of our Honduran heritage. 
+        What began as sharing homemade desserts with family grew into a small business dedicated to quality and tradition. Today, we offer artisanal cinnamon rolls, chocoflan, Honduran breads, 
+        and refined dessert tables for events, all crafted with care and attention to detail. Our goal is to bring elegance, authenticity, and exceptional taste to every occasion.</p>
+    <img src="{% static 'images/chocoflan.png' %}" alt="Our Story Image" class="our-story-image"/>
+</div>
+
+<hr class="hr">
+
+<h2 style="text-align: center; font-size: 50px;">Services</h2>
+<div id="services" class="services" style="text-align: center; margin-left: 15%; margin-right: 15%;">
+
+    <div class="dessert-tables">
+        <h2>Dessert Tables for Events</h2>
+        <p>Elevate your special occasions with our exquisite dessert tables, featuring a curated selection of artisanal treats that blend traditional Honduran flavors with modern elegance.</p>
+        <img style="width: 50%; height: 50%;" src="{% static 'images/dessert-table.jpg.webp' %}" alt="Dessert Tables Image" class="dessert-tables-image"/>
+    </div>
+
+    <div class="custom-orders">
+        <h2>Custom Orders</h2>
+        <p>Celebrate life's moments with our custom orders, tailored to your unique tastes and preferences. From personalized cakes to specialty desserts, we craft each creation with care and attention to detail.</p>
+        <img style="width: 50%; height: 50%" src="{% static 'images/cheesecake.jpg' %}" alt="Custom Orders Image" class="custom-orders-image"/>
+    </div>
+
+    <div class="honduran-breads">
+        <h2>Honduran Breads</h2>
+        <p>Experience the authentic taste of Honduras with our freshly baked breads, made using traditional recipes and techniques that have been passed down through generations.</p>
+        <img style="width: 50%; height: 50%;" src="{% static 'images/pan.jpg' %}" alt="Honduran Breads Image" class="honduran-breads-image"/>
+    </div>
+
+    <div class="assorted-desserts">
+        <h2>Assorted Desserts</h2>
+        <p>Indulge in our assorted desserts, featuring a delightful array of treats that showcase the rich flavors and textures of Honduran cuisine, perfect for any occasion.</p>
+        <img style="width: 50%; height: 50%;" src="{% static 'images/cinnamon-roll.jpg' %}" alt="Desserts Image" class="desserts-image"/>
+    </div>
+
+</div>
+
+<hr class="hr">
+
+<h2 style="text-align: center; font-size: 50px;">Follow Us!</h2>
+<div id="follow-us" class="follow-us" style="text-align: center; margin-left: 15%; margin-right: 15%;">
+    <div>
+    <p>Instagram</p>
+    <a href="https://www.instagram.com/" target="_blank">
+        <img src="{% static 'images/instagram.png' %}" alt="Instagram Logo" style="width: 50px; height: 50px;">
+    </a>
+    </div>
+
+    <div>
+    <p>Facebook</p>
+    <a href="https://www.facebook.com/" target="_blank">
+        <img src="{% static 'images/facebook.png' %}" alt="Facebook Logo" style="width: 50px; height: 50px;">
+    </a>
+    </div>
+
+    <div>
+    <p>TikTok</p>
+    <a href="https://www.tiktok.com/" target="_blank">
+        <img src="{% static 'images/tiktok.png' %}" alt="TikTok Logo" style="width: 50px; height: 50px;">
+    </a>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

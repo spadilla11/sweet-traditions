@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body class="sign-up-body">
+    <a href="{% url 'landing_page' %}" class="back-button">Back to Home</a>
+    <div class="register-aligment">
+        <form class="register-block" action="" method="post">
+                <h1>Registration</h1>
+                <div class="registration-inputs">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+
+                <button class="button" type="submit">Register</button>
+                <p>Already have an account? <a class="register-url" href="{% url 'login' %}">Login here</a>.</p>
+        </form>
+    </div>
+</body>
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 style="text-align: center; font-size: 50px;"> Our Menu</h2>
+<div class="menu-items">
+    {% if menu_items %}
+            {% for item in menu_items %}
+                {% if item.available %}
+                <div class="menu-item">
+                    <p>Name: {{ item.name }}</p>
+                    <p>Price: {{ item.price }}</p>
+                    <p>Category: {{ item.category.name }}</p> 
+                    <p>Description: {{ item.description }}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+    {% else %}
+        <p>No menu items available.</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
+

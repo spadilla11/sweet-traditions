@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<nav class="customer-navbar">
+    <ul>
+        <li><a href="{% url 'menu' %}" class="customer-page-btn">View Our Menu</a></li>
+        <li><a href="{% url 'place_order' %}" class="customer-page-btn">Place an Order</a></li>
+        <li><a href="{% url 'logout' %}" class="customer-page-btn">Logout</a></li>
+        <li style="float: right;"><p>Welcome {{ request.user.first_name }} {{ request.user.last_name }}!</p></li>
+    </ul>
+</nav>
+
+
+<h2 style="text-align: center;">My Orders</h2>
+{% if orders %}
+  {% for order in orders %}
+    <div class="current-order-card">
+      <h3>Order #{{ order.id }}</h3>
+
+      <p>Status: {{ order.status }}</p>
+      <p>Date: {{ order.date|date:"M d, Y" }}</p>
+
+      <ul>
+        {% for item in order.items.all %}
+          <li>{{ item.name }} — ${{ item.price }}</li>
+        {% endfor %}
+      </ul>
+
+      <strong>Total: ${{ order.total }}</strong>
+      <hr></hr>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>You haven’t placed any orders yet.</p>
+{% endif %}
+{% endblock content %}

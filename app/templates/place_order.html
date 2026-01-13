@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'customer_view' %}" class="submit-btn" style="margin-top: 5%;">Back</a>
+<form method="post" class="order-form">
+    <h2>Place Your Order</h2>
+    <p class="page-subtitle">Select the items you want from the menu below.</p>
+
+    {% csrf_token %}
+    <div class="items-grid">
+        {% for item in form.items %}
+            <div class="item-card">
+                {{ item.tag }}
+                <p class="item-name">{{ item.choice_label }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="submit-btn">Place Order</button>
+    <button type="reset" class="submit-btn">Clear Selection</button>
+</form>
+
+{% endblock content %}
+
